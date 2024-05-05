@@ -1,0 +1,821 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+#include <locale.h>
+#include <windows.h>
+#include <conio.h>
+#include <unistd.h>
+#include <pthread.h>
+
+//DECLARANDO AS VARIÁVEIS
+initconio();
+
+char matriz1 [15][15];
+char matriz2 [30][30];
+char matriz3 [60][60];
+
+  int fim1 = 0;
+  int fim2 = 0;
+  int fim3 = 0;
+  
+  char tecla1;
+  char tecla2;
+  char tecla3;
+  
+  int x=7;
+  int y=7;
+  
+  int x2=15;
+  int y2=15;
+  
+  int x3=15;
+  int y3=15;
+  
+  char chave1='@';
+  char chave2=' ';
+  char chave3=' ';
+  	
+  char porta1='D';
+  char porta2='D';
+  char porta3='D';
+
+  char botao2='O';
+  char botao3='O';
+  	
+  char espinho2='#';
+  char espinho3='#';
+  	
+  int cleberX2=18;
+  int cleberY2=25;
+	
+  int lifes=3;
+  int peido;
+  
+  char teletransporte= '<';
+  
+  int npcX=18;
+  int npcY=25;
+  int npc2_Y3=47;
+  int npc2_X3=43;
+  int npc3_Y3=33;
+  int npc3_X3=5;
+  
+  int E = 659;
+  int FSharp = 739; 
+  int GSharp = 830;
+  int A = 880;
+  int B = 988;
+  int D = 1175;
+  
+    //INICIO DA 1 FASE!
+  void historinha()
+{
+	
+	char historia[] =  "\t\t\t Perdido na imensidão de um mundo infestado de perigos, Cleber, o aventureiro, busca enfrentar os desafios existentes, conquistar a glória em meio a monstros e espinhos, e escapar desse labirinto cruel.";
+	
+	int h;
+		    for (h = 0; historia[h] != '\0'; h++) {
+		        printf("%c", historia[h]);
+		        fflush(stdout);
+		        usleep(15000);
+		    }
+		    
+			Sleep(5000);
+} 
+
+
+
+void mapa1(char matriz1[15][15],int x, int y, char chave1, char porta1)
+{	
+	int i,j;	
+		for(i = 0; i < 15; i++)
+    	{
+        	for(j = 0; j < 15; j++)
+        	{	
+        		if(i==y && j==x)
+				{
+					matriz1[i][j]='&';
+				}
+				else
+				{
+        			if(i==14 && j==7)
+					{
+						matriz1[i][j]=porta1;
+					}
+					else
+					{ 
+        				if(i==3 && j==7)
+						{
+							matriz1[i][j]=chave1;
+						}
+						else
+						{			
+   							if(i==0 || i==14)
+							{
+			 	 	 	 	 	matriz1[i][j]='*';printf("\n");
+							}
+							else
+							{
+								if(j==0 || j==14)
+								{
+									matriz1[i][j]='*';
+								}
+								else
+								{					
+									matriz1[i][j]=' ';
+					    		}								
+	    		        	}		
+						}
+					}
+				}
+        	}
+    	}
+    system("clear || cls");
+    printf("\n\n\n\n\n\n\n\n");
+    	for(i = 0; i < 15; i++)
+    	{
+    		printf("\t\t\t\t\t\t\t");
+        	for(j = 0; j < 15; j++)
+        	{
+        		printf(" ");
+            	printf("%c", matriz1[i][j]);
+        	}
+        	printf("\n");
+    	}
+}
+
+
+//MOVIMENTAÇAÕ DO PERSONAGEM DA 1 FASE
+void movimentacao1()
+{
+	char tecla1;
+	tecla1 = getch();
+    	switch(tecla1)
+		{
+			case 'w':
+				if(y==1)
+				{}
+				else
+				{
+					y--;	
+				}					
+				break;
+			case 's':
+				if((y==13 && matriz1[14][7]=='D')&& (x!=7 || x==7))
+				{}
+				else
+				{
+					if(y==13 && x!=7)
+					{}
+					else
+					{						
+						y++;
+						if(y==14 && x==7)
+						{
+							fim1=1;
+						}
+						else{}
+					}
+				}
+				break;	
+			case 'a':
+				if(x==1)
+				{}
+				else
+				{
+					x--;
+				}
+				break;
+			case 'd':
+				if(x==13)
+				{}
+				else
+				{
+					x++;
+				}
+				break;
+			case 'i':
+				if(x==7 && y==3)
+				{
+				
+					chave1=' ';
+					porta1='=';
+				}
+				else{}
+				default:
+				break;
+
+		}
+}
+
+//INICIO DA 2 FASE!
+void mapa2(char matriz2[30][30],int x2, int y2, char chave2, char porta2, char botao2, int cleberY2, int cleberX2, char espinho2) 
+{
+	int i,j;
+
+	for(i = 0; i < 30; i++) 
+	{
+		for(j = 0; j < 30; j++) 
+		{
+			if (i==cleberY2 && j==cleberX2 ) 
+			{
+				matriz2[i][j]='X';
+			}
+			else 
+			{
+				if(i==y2 && j==x2) 
+				{
+					matriz2[i][j]='&';
+				}
+				else 
+				{
+					if(i==0 && j==15) 
+					{
+						matriz2[i][j]=porta2;
+					}
+					else 
+					{
+						if(i==27 && j==18) 
+						{
+							matriz2[i][j]=botao2;
+						}
+						else 
+						{
+							if (i==15 && j==15) 
+							{
+								matriz2[i][j]=chave2;
+							}
+							else 
+							{
+
+								if(i==0 || i==29) 
+								{
+									matriz2[i][j]='*';
+									printf("\n");
+								}
+								else 
+								{
+									if(j==0 || j==29) 
+									{
+										matriz2[i][j]='*';
+									}
+									else 
+									{
+										matriz2[i][j]=' ';
+									}
+									
+										//espinhos
+										if(i==1 && j ==6 || i==1 && j ==7 || i==1 && j ==8 || i==1 && j ==9 || i==1 && j ==22 ||i==1 && j ==26)
+										{
+											matriz2[i][j] = '#';
+										}
+										if(i==2 && j ==3 || i==2 && j ==4 || i==2 && j ==5 || i==2 && j ==7 || i==2 && j ==7 ||i==2 && j ==26)
+										{
+											matriz2[i][j] = '#';
+										}
+								
+										//labirinto
+										if(i == 26 && j == 17 || i == 26 && j == 18 || i == 26 && j == 19)
+										{
+											matriz2[i][j] = '#';
+										}
+										if(i == 27 && j == 16 ||i == 27 && j == 17 || i == 27 && j == 19)
+										{
+											matriz2 [i][j] = '#';
+										}
+										if(i == 28 && j == 19)
+										{
+											matriz2[i][j] = '#';
+										}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+	system("clear || cls");
+	printf("\n\n\n\n\n\n\n\n");
+	for(i = 0; i < 30; i++) 
+	{
+		printf("\t\t\t\t\t\t\t");
+		for(j = 0; j < 30; j++) 
+		{
+			printf(" ");
+			printf("%c", matriz2[i][j]);
+		}
+		printf("\n");
+	}
+}
+  //MOVIMENTAÇÃO DO INIMIGO
+  void cleberMove2() 
+{
+	int cleber2;
+	srand(time(NULL));
+	cleber2 = 1 + (rand() % 4);
+	
+	switch (cleber2) 
+	{
+		case 1:
+			if(cleberY2==1) 
+			{} 
+			else 
+			{
+				cleberY2--;
+			}
+			break;
+		case 2:
+			if(cleberY2==28) 
+			{} 
+			else 
+			{
+				cleberY2++;
+
+			}
+			break;
+		case 3:
+			if(cleberX2==1) 
+			{} 
+			else 
+			{
+				cleberX2--;
+			}
+			break;
+		case 4:
+			if(cleberX2==28) 
+			{} 
+			else 
+			{
+				cleberX2++;
+			}
+			break;
+	}
+}
+  
+  //MOVIMENTAÇÃO DO PERSONAGEM NA 2 FASE
+  void movimentacao2() 
+{
+		char tecla2;
+	tecla2 = getch();
+	switch(tecla2)
+	{
+		case 'w':
+			if((y2==1 && matriz2[0][15]=='D')&& (x2!=15 || x2==15)) 
+			{} 
+			else 
+			{
+				if(y2==1 && x2!=15) 
+				{}
+				else 
+				{
+					y2--;
+					cleberMove2();
+					if(y2==0 && x2==15) 
+					{
+						fim2=1;
+					} 
+					else {}
+						if (x2==cleberX2 && y2==cleberY2) 
+						{
+							lifes--;
+							x2=15;
+							y2=15;
+							chave2=' ';
+							porta2='D';
+							botao2='O';
+							cleberX2=18;
+							cleberY2=25;
+								if (lifes==0) 
+								{
+									printf("\n\n");
+								Sleep(20);
+								printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+								} 
+								else {}
+						} 
+						else {}							
+							//verificar o dano do espinho							
+							if (matriz2[y2][x2] == espinho2) 
+							{
+								printf("\t\t\t\t\t\tVoce sofreu dano!\n");
+								Sleep(900);
+								lifes--;
+								x2=15;
+								y2=15;
+								chave2=' ';
+								porta2='D';
+								botao2='O';
+								cleberX2=18;
+								cleberY2=25;
+									if (lifes==0) 
+									{
+									printf("\n\n");
+								Sleep(20);
+								printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+									} 
+									else {}
+							}
+							
+				}
+			}
+			break;
+		case 's':
+			if(y2==28) 
+			{} 
+			else 
+			{
+				y2++;
+				cleberMove2();
+					if (x2==cleberX2 && y2==cleberY2) 
+					{
+						lifes--;
+						x2=15;
+						y2=15;
+						chave2=' ';
+						porta2='D';
+						botao2='O';
+						cleberX2=18;
+						cleberY2=25;
+							if (lifes==0) 
+							{
+									printf("\n\n");
+								Sleep(20);
+								printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+							} 
+							else {}
+					} 
+					else {}					
+					//verificar o dano do espinho
+						if (matriz2[y2][x2] == espinho2) 
+						{
+							printf("\t\t\t\t\t\tVoce sofreu dano!\n");
+							Sleep(900);
+							lifes--;
+							x2=15;
+							y2=15;
+							chave2=' ';
+							porta2='D';
+							botao2='O';
+							cleberX2=18;
+							cleberY2=25;
+								if (lifes==0) 
+								{
+									printf("\n\n");
+								Sleep(20);
+							    printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+								} 
+								else {}
+						}
+							
+			
+			break;
+		case 'a':
+			if(x2==1) 
+			{} 
+			else 
+			{
+				x2--;
+				cleberMove2();
+					if (x2==cleberX2 && y2==cleberY2) 
+					{
+						lifes--;
+						x2=15;
+						y2=15;
+						chave2=' ';
+						porta2='D';
+						botao2='O';
+						cleberX2=18;
+						cleberY2=25;
+							if (lifes==0) 
+							{
+									printf("\n\n");
+								Sleep(20);
+								printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+							} 
+							else {}
+					} 
+					else {}					
+					//verificar o dano do espinho							
+						if (matriz2[y2][x2] == espinho2) 
+						{
+							printf("\t\t\t\t\t\tVoce sofreu dano!\n");
+							Sleep(900);
+							lifes--;
+							x2=15;
+							y2=15;
+							chave2=' ';
+							porta2='D';
+							botao2='O';
+							cleberX2=18;
+							cleberY2=25;
+								if (lifes==0) 
+								{
+									printf("\n\n");
+								Sleep(20);
+						        printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+								} 
+								else {}
+						}	
+			}							
+			break;
+		case 'd':
+			if(x2==28) 
+			{} 
+			else 
+			{
+				x2++;
+				cleberMove2();
+					if (x2==cleberX2 && y2==cleberY2) 
+					{
+						lifes--;
+						x2=15;
+						y2=15;
+						chave2=' ';
+						porta2='D';
+						botao2='O';
+						cleberX2=18;
+						cleberY2=25;
+							if (lifes==0) 
+							{
+									printf("\n\n");
+								Sleep(20);
+								printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+							} 
+							else {}
+					} 
+					else {}						
+						//verificar o dano do espinho			
+						if (matriz2[y2][x2] == espinho2) 
+						{
+							printf("\t\t\t\t\t\tVoce sofreu dano!\n");
+							Sleep(900);
+							lifes--;
+							x2=15;
+							y2=15;
+							chave2=' ';
+							porta2='D';
+							botao2='O';
+							cleberX2=18;
+							cleberY2=25;
+								if (lifes==0) 
+								{
+									printf("\n\n");
+								Sleep(20);
+							    printf("\t\t\t Parabéns! Você passou de fase! \n");
+								Sleep(900);
+								printf("\n\t\t\t\t\t\tDigite 1 e pressione enter para continuar...");
+								scanf("%d", &peido);
+								fim2=1;
+								break;
+								} 
+								else {}
+						}
+							
+						
+			}
+			break;
+		case 'i':
+			if(x2==18 && y2==27) 
+			{
+				chave2='@';
+				botao2=' ';
+			} 
+			else {}
+				if (x2==15 && y2==15 && chave2=='@') 
+				{
+						printf("\n\n\n");					
+					    Sleep(20);
+					    printf("\t\t\t Parabéns! Você passou de fase! \n");
+						Sleep(900);
+						system("cls");
+    					
+					porta2='=';
+					chave2=' ';
+				}
+				default:
+				break;
+			}
+	}
+}
+
+
+  void Jogo()
+{
+	while(fim1==0) //dinamica da fase1
+	{	
+		
+		mapa1(matriz1,x,y,chave1,porta1);
+	   	
+		movimentacao1();	
+    	
+	}
+	
+	while(fim2==0) //dinamica da fase2
+	{
+		mapa2(matriz2,x2,y2,chave2,porta2,botao2,cleberY2,cleberX2,espinho2);
+
+		movimentacao2();
+	}
+	
+
+}
+
+// MENU PRINCIPAL
+
+
+	int main()
+{
+	setlocale(LC_ALL, "Portuguese");
+	int escolha_menu;
+	int peido;
+
+
+
+    
+    while(escolha_menu != 3)
+	{
+
+		system("cls");
+   
+        printf("\n\n");
+        printf("\t\t\t\t\t\t        ###   ###  ####  ###  ##  ##  ## \n");
+        printf("\t\t\t\t\t\t        #### ####  ##    #### ##  ##  ## \n");
+        printf("\t\t\t\t\t\t        ## ### ##  ####  ## ####  ##  ## \n");
+        printf("\t\t\t\t\t\t        ##     ##  ##    ##  ###  ##  ## \n");
+        printf("\t\t\t\t\t\t        ##     ##  ####  ##   ##  ###### \n");
+        
+        
+        printf("\n\n");
+        printf("\t\t\t\t\t\t         -----------------------------\n\n");
+        Sleep(300);
+		
+		printf("\t\t\t\t\t\t\t            JOGAR   \n");
+		printf("\t\t\t\t\t\t\t              1     \n");
+		
+	
+        Sleep(300);
+		
+		printf("\t\t\t\t\t\t\t           TUTORIAL \n");
+		printf("\t\t\t\t\t\t\t              2     \n");
+		
+
+        Sleep(300);
+        
+		printf("\t\t\t\t\t\t\t            SAIR    \n");
+		printf("\t\t\t\t\t\t\t              3     \n\n");
+		
+        Sleep(300);
+        printf("\t\t\t\t\t\t        ------------------------------\n");
+        Sleep(300);
+        printf("\n\t\t\t\t\t\t\t==> ");
+        
+        scanf("%d", &escolha_menu);
+
+		system("cls || clear");
+
+		switch(escolha_menu)
+		{
+
+		case (1):
+			system("cls");
+        	
+        	
+			char abrir[] = "\n\n\t\t\t\t\t\t   |INICIANDO O JOGO|";
+			
+			int a;
+		    for (a = 0; abrir[a] != '\0'; a++) {
+		        printf("%c", abrir[a]);
+		        fflush(stdout);
+		        usleep(20000);
+		    }
+		     Sleep(500);
+		    system("cls");
+			historinha();
+			Jogo();
+			
+			
+			break;
+			
+		case (2):
+			
+			system("cls");
+        	
+        	
+			char tutorial[] = "\n\n\t\t\t\t\t\t   |INICIANDO TUTORIAL|";
+			
+			int x;
+		    for (x = 0; tutorial[x] != '\0'; x++) {
+		        printf("%c", tutorial[x]);
+		        fflush(stdout);
+		        usleep(20000);
+		    }
+		    Sleep(500);
+		    system("cls");
+		  
+		  	
+		
+		    
+		  char frase[] = 
+                   "\t\t   O jogo é do estilo aventura/puzzle onde o objetivo e o jogador conseguir passar de três fases.\n"
+                   "\t\t   Em cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.\n"
+                   "\t\t   O jogador possui os seguintes comandos:                                                                     \n"
+                   "\t\t   W: O jogador movimenta uma unidade para cima.                                                               \n"
+                   "\t\t   A: O jogador movimenta uma unidade para a esquerda.                                                         \n"
+                   "\t\t   S: O jogador movimenta uma unidade para baixo.                                                              \n"
+                   "\t\t   D: O jogador movimenta uma unidade para direita.                                                            \n"
+                   "\t\t   I: O jogador interage com o objeto que está em cima.                                                        \n"
+                   "\t\t   &: Símbolo que representa o jogador.                                                                        \n"
+                   "\t\t   *: Símbolo que representa uma parede, o jogador ao se movimentar não pode passar pela parede.               \n"
+                   "\t\t   @: Símbolo que representa a chave para abrir a porta para finalizar a fase,                                 \n"
+                   "\t\t   a porta abre no momento que o jogador interage com a chave.                                              \n"
+                   "\t\t   D: Simbolo que representa a porta fechada.                                                                \n"
+                   "\t\t   =: Simbolo que representa a porta aberta quando o jogador interage com a chave.                             \n"
+                   "\t\t   O: Símbolo que representa um botão que o usuário pode interagir, o botão fica no chão e o jogador deve ficar em cima dele para poder interagir.\n"
+                   "\t\t   #: Simbolo que representa um espinho. A fase é reiniciada quando o jogador toca no espinho, caso a fase seja reiniciada três vezes, o jogo volta para o menu principal.\n"
+				   "\t\t   >: Simbolo que representa um teletransporte. O teletransporte sempre deve                                    \n"
+                   "\t\t   vir em pares, quando o jogador toca em um ele e transportado para outro e vice-versa.                        \n"
+                   "\t\t   X: Simbolo que representa o monstro nível 1. Esse monstro tem um movimento aleatório para cima, para esquerda, para baixo e para direita. Caso o monstro toque no jogador, a fase é reiniciada.\n"
+                   "\t\t   V: Simbolo que representa o monstro nível 2. Esse monstro tem uma inteligência para seguir o jogador. Caso o monstro toque no jogador, a fase é reiniciada.\n";
+                   
+                   
+		
+		  // Exibição do texto
+		    int t;
+		    for (t = 0; frase[t] != '\0'; t++) {
+		        printf("%c", frase[t]);
+		        fflush(stdout);
+		        usleep(1000);
+		    }
+		    
+		   
+		
+		    printf("\n\n\t\t\t\tDigite 1 e pressione enter para continuar");
+		    int peido;
+		    printf("\n\t\t\t\t==> ");
+		    scanf("%d", &peido);
+			break;
+			
+		case (3):	
+
+			system("cls");
+        	char encerrando[] = "|ENCERRANDO JOGO|";
+			
+			int e;
+		    for (e = 0; encerrando[e] != '\0'; e++) {
+		        printf("%c", encerrando[e]);
+		        fflush(stdout);
+		        usleep(20000);
+		    }
+		     Sleep(500);
+		    system("cls");
+          	
+			printf("Jogo encerrado");
+			system("cls");
+		
+		    
+			break;
+				
+		}
+			
+		}
+
+
+return 0;
+}
+endconio();
