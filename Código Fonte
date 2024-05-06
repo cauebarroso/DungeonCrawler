@@ -59,13 +59,7 @@ char matriz3 [60][60];
   int npc2_X3=43;
   int npc3_Y3=33;
   int npc3_X3=5;
-  
-  int E = 659;
-  int FSharp = 739; 
-  int GSharp = 830;
-  int A = 880;
-  int B = 988;
-  int D = 1175;
+
   
     //INICIO DA 1 FASE!
   void historinha()
