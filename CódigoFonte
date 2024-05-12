@@ -124,7 +124,7 @@ void mapa1(char matriz1[10][10],int x, int y, char chave1, char porta1)
 				}
         	}
     	}
-    system("clear || cls");
+    system("cls");
     printf("\n\n\n\n\n\n\n\n");
     	for(i = 0; i < 10; i++)
     	{
@@ -308,7 +308,7 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 			}
 		}
 	}
-	system("clear || cls");
+	system("cls");
 	printf("\n\n\n\n\n\n\n\n");
 	for(i = 0; i < 20; i++) 
 	{
@@ -845,7 +845,7 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
         
         scanf("%d", &escolha_menu);
 
-		system("cls || clear");
+		system("cls");
 
 		switch(escolha_menu)
 		{
