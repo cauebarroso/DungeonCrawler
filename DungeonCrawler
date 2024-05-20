@@ -46,8 +46,8 @@ char matriz3 [40][40];
   char espinho2='#';
   char espinho3='#';
   	
-  int eminemX2=13;
-  int eminemY2=12;
+  int eminemX2=4;
+  int eminemY2=5;
   
   int eminemX3= 13;
   int eminemY3= 12;
@@ -59,8 +59,8 @@ char matriz3 [40][40];
   char teletransporte2= '<';
   
   
-  int npcX=18;
-  int npcY=25;
+  int npcX=33;
+  int npcY=29;
   int monstro2x=38;
   int monstro2y=1;		
 		
@@ -409,8 +409,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 							chave2=' ';
 							porta2='D';
 							botao2='O';
-							eminemX2=18;
-							eminemY2=15;
+							int eminemX2=4;
+  int eminemY2=5;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -449,8 +449,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 								chave2=' ';
 								porta2='D';
 								botao2='O';
-								eminemX2=18;
-								eminemY2=15;
+								int eminemX2=4;
+  int eminemY2=5;
 									if (lifes==0) 
 									{
 									printf("\n\n");
@@ -496,8 +496,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 						chave2=' ';
 						porta2='D';
 						botao2='O';
-						eminemX2=18;
-						eminemY2=15;
+						int eminemX2=4;
+  int eminemY2=5;
 							if (lifes==0) 
 							{
 									printf("\n\n");
@@ -536,8 +536,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 							chave2=' ';
 							porta2='D';
 							botao2='O';
-							eminemX2=18;
-							eminemY2=15;
+							int eminemX2=4;
+  int eminemY2=5;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -582,8 +582,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 						chave2=' ';
 						porta2='D';
 						botao2='O';
-						eminemX2=18;
-						eminemY2=15;
+					int eminemX2=4;
+  int eminemY2=5;
 							if (lifes==0) 
 							{
 									printf("\n\n");
@@ -622,8 +622,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 							chave2=' ';
 							porta2='D';
 							botao2='O';
-							eminemX2=18;
-							eminemY2=15;
+							int eminemX2=4;
+  int eminemY2=5;;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -667,8 +667,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 						chave2=' ';
 						porta2='D';
 						botao2='O';
-						eminemX2=18;
-						eminemY2=15;
+						int eminemX2=4;
+  int eminemY2=5;;
 							if (lifes==0) 
 							{
 									printf("\n\n");
@@ -707,8 +707,8 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 							chave2=' ';
 							porta2='D';
 							botao2='O';
-							eminemX2=18;
-							eminemY2=15;
+							int eminemX2=4;
+  int eminemY2=5;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1125,8 +1125,8 @@ void movimentacao3()
 							chave3=' ';
 							porta3='D';
 							botao3='O';
-							npcX=18;
-							npcY=25;
+							int npcX=33;
+  int npcY=29;
 							 int monstro2x=38;
   int monstro2y=1;
 								if (lifes==0) 
@@ -1169,8 +1169,8 @@ void movimentacao3()
 								chave3=' ';
 								porta3='D';
 								botao3='O';
-							npcX=18;
-							npcY=25;
+							int npcX=33;
+  int npcY=29;
 						 int monstro2x=38;
   int monstro2y=1;
 								if (lifes==0) 
@@ -1218,8 +1218,8 @@ void movimentacao3()
 					chave3=' ';
 					porta3='D';
 					botao3='O';
-				npcX=18;
-							npcY=25;
+				int npcX=33;
+  int npcY=29;
 						 int monstro2x=38;
   int monstro2y=1;
 						if (lifes==0) 
@@ -1262,8 +1262,8 @@ void movimentacao3()
 								chave3=' ';
 								porta3='D';
 								botao3='O';
-								npcX=18;
-							npcY=25;
+							int npcX=33;
+  int npcY=29;
 						 int monstro2x=38;
   int monstro2y=1;
 								if (lifes==0) 
@@ -1309,8 +1309,8 @@ void movimentacao3()
 					chave3=' ';
 					porta3='D';
 					botao3='O';
-					npcX=18;
-							npcY=25;
+					int npcX=33;
+  int npcY=29;
 						 int monstro2x=38;
   int monstro2y=1;
 						if (lifes==0) 
@@ -1354,8 +1354,8 @@ void movimentacao3()
 								chave3=' ';
 								porta3='D';
 								botao3='O';
-								npcX=18;
-							npcY=25;
+							int npcX=33;
+  int npcY=29;
 							 int monstro2x=38;
   int monstro2y=1;
 								if (lifes==0) 
@@ -1401,9 +1401,9 @@ void movimentacao3()
 						chave3=' ';
 						porta3='D';
 						botao3='O';
-						npcX=18;
-							npcY=25;
-							 int monstro2x=38;
+						int npcX=33;
+  int npcY=29;
+							 int monstro2x=30;
   int monstro2y=1;
 							if (lifes==0) 
 							{
@@ -1445,8 +1445,8 @@ void movimentacao3()
 								chave3=' ';
 								porta3='D';
 								botao3='O';
-								npcX=18;
-							npcY=25;
+								int npcX=33;
+  int npcY=29;
 						 int monstro2x=38;
   int monstro2y=1;
 								if (lifes==0) 
