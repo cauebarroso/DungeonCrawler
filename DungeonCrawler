@@ -59,10 +59,8 @@ char matriz3 [40][40];
   
   int npcX=18;
   int npcY=25;
-  int npc2_Y3=37;
-  int npc2_X3=33;
-  int npc3_Y3=33;
-  int npc3_X3=5;		
+  int monstro2x=30;
+  int monstro2y=35;		
 		
 
     //INICIO DA 1 FASE!
@@ -83,10 +81,10 @@ char matriz3 [40][40];
 		    for (h = 0; historia[h] != '\0'; h++) {
 		        printf("%c", historia[h]);
 		        fflush(stdout);
-		        usleep(15000);
+		        usleep(0);
 		    }
 		    
-			Sleep(5000);
+			Sleep(0);
 } 
 
 
@@ -781,7 +779,7 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 }
 
   //INICIO JOGO 3!
-void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char botao3, int npcY, int npcX, int npc2_Y3, int npc2_X3, int npc3_Y3, int npc3_X3, char espinho3) 
+void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char botao3, int npcY, int npcX, int monstro2y, int monstro2x, char espinho3) 
 {
 	int i,j;
 
@@ -793,7 +791,14 @@ void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char b
 			{
 				matriz3[i][j]='X';
 			}else
-			
+				
+				if(i == monstro2y && j == monstro2x)
+				{
+					matriz3[i][j]='V';
+				}
+				
+				else
+				
 		
 			
 				if (i==y3 && j==x3){
@@ -993,11 +998,10 @@ void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char b
 //MOVIMENTAÇÃO DO INIMIGO DA 3 FASE
 void npcMove() 
 {
-	int npc, npc2, npc3;
+	int npc;
 	srand(time(NULL));
 	npc = 1 + (rand() % 4);
-	npc2 = 1 + (rand() % 4);
-	npc3 = 1 + (rand() % 4);
+
 	
 	switch (npc) 
 	{
@@ -1040,6 +1044,27 @@ void npcMove()
 }
 
 //MOVIMENTAÇÃO DO INIMIGO 2
+	
+void mover_monstro() {
+    // Calcula as diferenças entre as coordenadas do monstro e do jogador
+    int diff_x = x3 - monstro2x;
+    int diff_y = y3 - monstro2y;
+
+    // Move o monstro na direção onde a diferença é maior
+    if (abs(diff_x) > abs(diff_y)) {
+        // Se a diferença horizontal é maior, move na direção horizontal
+        if (diff_x > 0)
+            monstro2x++;
+        else if (diff_x < 0)
+            monstro2x--;
+    } else {
+        // Se a diferença vertical é maior ou igual, move na direção vertical
+        if (diff_y > 0)
+            monstro2y++;
+        else if (diff_y < 0)
+            monstro2y--;
+    }
+}
 	
 
 
@@ -1084,7 +1109,7 @@ void movimentacao3()
 						fim3=1;
 						} 
 						else {}
-							if (x3==npcX && y3==npcY || x3==npc2_X3 && y3==npc2_Y3 || x3==npc3_X3 && y3==npc3_Y3) 
+							if ((x3 == npcX && y3 == npcY) || (x3 == monstro2x && y3 == monstro2y)) 
 							{
 							lifes--;
 							x3=3;
@@ -1094,10 +1119,8 @@ void movimentacao3()
 							botao3='O';
 							npcX=18;
 							npcY=25;
-							npc2_X3=33;
-							npc2_Y3=37;
-							npc3_Y3=33;
-                            npc3_X3=5;
+							monstro2x=30;
+							monstro2y=35;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1138,12 +1161,10 @@ void movimentacao3()
 								chave3=' ';
 								porta3='D';
 								botao3='O';
-								npcX=18;
-								npcY=25;
-								npc2_X3=33;
-							    npc2_Y3=37;
-							    npc3_Y3=33;
-                                npc3_X3=5;
+							npcX=18;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1181,7 +1202,7 @@ void movimentacao3()
 			{
 				y3++;
 				npcMove();
-					if (x3==npcX && y3==npcY || x3==npc2_X3 && y3==npc2_Y3) 
+					if((x3 == npcX && y3 == npcY) || (x3 == monstro2x && y3 == monstro2y)) 
 					{
 					lifes--;
 					x3=3;
@@ -1189,12 +1210,10 @@ void movimentacao3()
 					chave3=' ';
 					porta3='D';
 					botao3='O';
-					npcX=18;
-					npcY=25;
-					npc2_X3=33;
-					npc2_Y3=37;
-					npc3_Y3=33;
-                    npc3_X3=5;
+				npcX=18;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 						if (lifes==0) 
 						{
 									printf("\n\n");
@@ -1236,11 +1255,9 @@ void movimentacao3()
 								porta3='D';
 								botao3='O';
 								npcX=18;
-								npcY=25;
-								npc2_X3=33;
-							    npc2_Y3=37;
-							    npc3_Y3=33;
-                                npc3_X3=5;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1276,7 +1293,7 @@ void movimentacao3()
 			{
 				x3--;
 				npcMove();
-					if (x3==npcX && y3==npcY || x3==npc2_X3 && y3==npc2_Y3) 
+					if((x3 == npcX && y3 == npcY) || (x3 == monstro2x && y3 == monstro2y))
 					{
 					lifes--;
 					x3=3;
@@ -1285,11 +1302,9 @@ void movimentacao3()
 					porta3='D';
 					botao3='O';
 					npcX=18;
-					npcY=25;
-					npc2_X3=33;
-					npc2_Y3=37;
-					npc3_Y3=33;
-                    npc3_X3=5;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 						if (lifes==0) 
 						{
 							printf("\n\n");
@@ -1332,11 +1347,9 @@ void movimentacao3()
 								porta3='D';
 								botao3='O';
 								npcX=18;
-								npcY=25;
-								npc2_X3=33;
-							    npc2_Y3=37;
-							    npc3_Y3=33;
-                                npc3_X3=5;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1372,7 +1385,7 @@ void movimentacao3()
 				{
 					x3++;
 					npcMove();
-						if (x3==npcX && y3==npcY || x3==npc2_X3 && y3==npc2_Y3) 
+						if((x3 == npcX && y3 == npcY) || (x3 == monstro2x && y3 == monstro2y))
 						{
 						lifes--;
 						x3=3;
@@ -1381,11 +1394,9 @@ void movimentacao3()
 						porta3='D';
 						botao3='O';
 						npcX=18;
-						npcY=25;
-						npc2_X3=33;
-					    npc2_Y3=37;
-					    npc3_Y3=33;
-                        npc3_X3=5;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 							if (lifes==0) 
 							{
 									printf("\n\n");
@@ -1427,11 +1438,9 @@ void movimentacao3()
 								porta3='D';
 								botao3='O';
 								npcX=18;
-								npcY=25;
-								npc2_X3=33;
-							    npc2_Y3=37;
-							    npc3_Y3=33;
-                                npc3_X3=5;
+							npcY=25;
+							monstro2x=30;
+							monstro2y=35;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1575,9 +1584,10 @@ void movimentacao3()
 	
 		while(fim3==0) //dinamica da fase3
 	{
-		mapa3(matriz3,x3,y3,chave3,porta3,botao3,npcY,npcX,npc2_Y3,npc2_X3,npc3_Y3,npc3_X3,espinho3);
+		mapa3(matriz3,x3,y3,chave3,porta3,botao3,npcY,npcX,monstro2y, monstro2x,espinho3);
 
 		movimentacao3();
+		mover_monstro();
 	}
 	
 
@@ -1746,3 +1756,11 @@ void movimentacao3()
 return 0;
 }
 endconio();
+
+
+
+
+
+
+
+
