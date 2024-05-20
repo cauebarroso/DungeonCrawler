@@ -29,8 +29,8 @@ char matriz3 [40][40];
   int x2=15;
   int y2=15;
   
-  int x3=15;
-  int y3=15;
+  int x3=20;
+  int y3=20;
   
   char chave1='@';
   char chave2=' ';
@@ -56,11 +56,13 @@ char matriz3 [40][40];
   int lixo;
   
   char teletransporte= '<';
+  char teletransporte2= '<';
+  
   
   int npcX=18;
   int npcY=25;
-  int monstro2x=30;
-  int monstro2y=35;		
+  int monstro2x=38;
+  int monstro2y=1;		
 		
 
     //INICIO DA 1 FASE!
@@ -81,10 +83,10 @@ char matriz3 [40][40];
 		    for (h = 0; historia[h] != '\0'; h++) {
 		        printf("%c", historia[h]);
 		        fflush(stdout);
-		        usleep(0);
+		        usleep(15000);
 		    }
 		    
-			Sleep(0);
+			Sleep(5000);
 } 
 
 
@@ -779,7 +781,7 @@ void mapa2(char matriz2[20][20],int x2, int y2, char chave2, char porta2, char b
 }
 
   //INICIO JOGO 3!
-void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char botao3, int npcY, int npcX, int monstro2y, int monstro2x, char espinho3) 
+void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char botao3, int npcY, int npcX, int monstro2y, int monstro2x, char espinho3, char teletransporte2) 
 {
 	int i,j;
 
@@ -795,6 +797,12 @@ void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char b
 				if(i == monstro2y && j == monstro2x)
 				{
 					matriz3[i][j]='V';
+				}
+				else
+				
+				if(i==16 && j==13)
+				{
+					matriz3[i][j]='>';
 				}
 				
 				else
@@ -1119,8 +1127,8 @@ void movimentacao3()
 							botao3='O';
 							npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+							 int monstro2x=38;
+  int monstro2y=1;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1163,8 +1171,8 @@ void movimentacao3()
 								botao3='O';
 							npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+						 int monstro2x=38;
+  int monstro2y=1;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1212,8 +1220,8 @@ void movimentacao3()
 					botao3='O';
 				npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+						 int monstro2x=38;
+  int monstro2y=1;
 						if (lifes==0) 
 						{
 									printf("\n\n");
@@ -1256,8 +1264,8 @@ void movimentacao3()
 								botao3='O';
 								npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+						 int monstro2x=38;
+  int monstro2y=1;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1303,8 +1311,8 @@ void movimentacao3()
 					botao3='O';
 					npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+						 int monstro2x=38;
+  int monstro2y=1;
 						if (lifes==0) 
 						{
 							printf("\n\n");
@@ -1348,8 +1356,8 @@ void movimentacao3()
 								botao3='O';
 								npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+							 int monstro2x=38;
+  int monstro2y=1;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1395,8 +1403,8 @@ void movimentacao3()
 						botao3='O';
 						npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+							 int monstro2x=38;
+  int monstro2y=1;
 							if (lifes==0) 
 							{
 									printf("\n\n");
@@ -1439,8 +1447,8 @@ void movimentacao3()
 								botao3='O';
 								npcX=18;
 							npcY=25;
-							monstro2x=30;
-							monstro2y=35;
+						 int monstro2x=38;
+  int monstro2y=1;
 								if (lifes==0) 
 								{
 									printf("\n\n");
@@ -1476,6 +1484,7 @@ void movimentacao3()
 					chave3='@';
 					botao3=' ';
 					teletransporte= '<';
+					
 				} 
 				else {}
 					if (x3==15 && y3==15 && chave3=='@') 
@@ -1545,14 +1554,50 @@ void movimentacao3()
 						Sleep(300);
 						system("color 07");
 
-						 x3 = 33;
-                         y3 = 38;
+						 x3 = 12;
+                         y3 = 15;
 					}
 					
-					if (x3==33 && y3==38 && teletransporte=='<')
+					if (x3==13 && y3==16 && teletransporte=='<')
 					{
-				
+						printf("\n\n\n");
+						printf("\t\t\t\t\t\t########  ######   ##     ######  #######  ######     #######  ###     ##  #######   ######   #######  #####   ########  ######\n");
+						Sleep(300);
+						system("color 01");
+						printf("\t\t\t\t\t\t   ##     ##       ##     ##        ##     ##   ##    ##   ##  ## #    ##  ##        ##   ##  ##   ##  ##   ##    ##     ##\n");
+						Sleep(300);
+						system("color 02");
+						printf("\t\t\t\t\t\t   ##     #####    ##     #####     ##     ######     #######  ##  #   ##  #######   ######   ##   ##  ######     ##     #####\n");
+						Sleep(300);
+						system("color 03");
+						printf("\t\t\t\t\t\t   ##     ##       ##     ##        ##     ##  ##     ##   ##  ##   #  ##       ##   ##       ##   ##  ##         ##     ##\n");
+						Sleep(300);
+						system("color 04");
+						printf("\t\t\t\t\t\t   ##     ######   #####  ######    ##     ##   ##    ##   ##  ##    ###   #######   ##       #######  ##         ##     ######\n");
+						Sleep(300);
+						system("color 05");
+						
+						 printf("\n\n\n");  
+						printf("\t\t\t\t\t\t    #######  ########  ##  ##       ##  #######  ######    #######\n");
+						Sleep(300);
+						system("color 06");
+						printf("\t\t\t\t\t\t    ##   ##     ##     ##   ##     ##   ##   ##  ##    ##  ##   ##\n");
+						Sleep(300);
+						system("color 08");
+						printf("\t\t\t\t\t\t    #######     ##     ##    ##   ##    #######  ##    ##  ##   ##\n");
+						Sleep(300);
+						system("color 09");
+						printf("\t\t\t\t\t\t    ##   ##     ##     ##     ## ##     ##   ##  ##    ##  ##   ##\n");
+						Sleep(300);
+						system("color 0A");
+						printf("\t\t\t\t\t\t    ##   ##     ##     ##      ###      ##   ##  ######    #######\n");
+						Sleep(300);
+						system("color 07");
+						x3 = 6;
+						y3 = 35;
 					}
+					
+				
 			default:
 				break;
 			}
@@ -1584,7 +1629,7 @@ void movimentacao3()
 	
 		while(fim3==0) //dinamica da fase3
 	{
-		mapa3(matriz3,x3,y3,chave3,porta3,botao3,npcY,npcX,monstro2y, monstro2x,espinho3);
+		mapa3(matriz3,x3,y3,chave3,porta3,botao3,npcY,npcX,monstro2y, monstro2x,espinho3,teletransporte2);
 
 		movimentacao3();
 		mover_monstro();
@@ -1756,11 +1801,3 @@ void movimentacao3()
 return 0;
 }
 endconio();
-
-
-
-
-
-
-
-
