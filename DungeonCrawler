@@ -789,7 +789,7 @@ void mapa3(char matriz3[40][40],int x3, int y3, char chave3, char porta3, char b
 	{
 		for(j = 0; j < 40; j++) 
 		{
-			if (i==npcY && j==npcX || i == npc2_Y3 && j == npc2_X3 || i == npc3_Y3 && j == npc3_X3) 
+			if (i==npcY && j==npcX) 
 			{
 				matriz3[i][j]='X';
 			}else
@@ -1036,79 +1036,7 @@ void npcMove()
 			break;
 	} 
 	
-	switch (npc2) 
-	{
-		case 1:
-			if(npc2_Y3==1) 
-			{} 
-			else 
-			{
-				npc2_Y3--;
-			}
-			break;
-		case 2:
-			if(npc2_Y3==38) 
-			{} 
-			else 
-			{
-				npc2_Y3++;
 
-			}
-			break;
-		case 3:
-			if(npc2_X3==1) 
-			{} 
-			else 
-			{
-				npc2_X3--;
-			}
-			break;
-		case 4:
-			if(npc2_X3==38) 
-			{} 
-			else 
-			{
-				npc2_X3++;
-			}
-			break;
-	}
-	
-	switch (npc3) 
-	{
-		case 1:
-			if(npc3_Y3==1) 
-			{} 
-			else 
-			{
-				npc3_Y3--;
-			}
-			break;
-		case 2:
-			if(npc3_Y3==4) 
-			{} 
-			else 
-			{
-				npc3_Y3++;
-
-			}
-			break;
-		case 3:
-			if(npc3_X3==1) 
-			{} 
-			else 
-			{
-				npc3_X3--;
-			}
-			break;
-		case 4:
-			if(npc3_X3==10) 
-			{} 
-			else 
-			{
-				npc3_X3++;
-			}
-			break;
-	}
 }
 
 //MOVIMENTAÇÃO DO INIMIGO 2
@@ -1818,11 +1746,3 @@ void movimentacao3()
 return 0;
 }
 endconio();
-
-
-
-
-
-
-
-
