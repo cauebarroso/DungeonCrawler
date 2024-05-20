@@ -1,7 +1,7 @@
 # DungeonCrawler
 
 História:
-- Perdido na imensidão de um mundo infestado de perigos, Cleber, o aventureiro, busca enfrentar os desafios existentes, conquistar a glória em meio a monstros e espinhos, e escapar desse labirinto cruel.
+- No pacífico vilarejo de Kokiri, situado na periferia do grande reino de Hyrule, Girotto vivia em harmonia com a natureza e a magia que permeava a terra. Um dia, uma força sombria, liderada por um misterioso inimigo, invadiu Kokiri, selando suas fronteiras com portas mágicas e espalhando criaturas perigosas por todos os cantos. Os anciãos do vilarejo revelaram que a única esperança era reunir as antigas chaves mágicas, forjadas pelos sábios de Hyrule, escondidas por todo o reino. Com coragem e determinação, Girotto decidiu enfrentar os perigos e recuperar as chaves para salvar seu lar e restaurar a paz em sua vila e em todo o reino.
 
 Objetivo:
 - O jogo é do estilo aventura/puzzle onde o objetivo é o jogador conseguir passar de três fases. Em cada fase o jogador deve se movimentar para pegar uma chave para abrir a porta fechada.
