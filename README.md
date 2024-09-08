@@ -25,6 +25,3 @@ O: Símbolo que representa um botão que o usuário pode interagir, o botão fic
 X: Símbolo que representa o monstro nível 1. Esse monstro tem um movimento aleatório para cima, para esquerda, para baixo e para direita. Caso o monstro toque no jogador, a fase é reiniciada.
 V: Símbolo que representa o monstro nível 2. Esse monstro tem uma inteligência para seguir o jogador (há várias maneiras de implementar isso). Caso o monstro toque no jogador, a fase é reiniciada.
 
-Integrantes:
-- Cauê Barroso
-- Ian Carlos
